@@ -1,0 +1,216 @@
+:root {
+    --bg: #dde2e8;
+    --shadow-dark: #a3b1c6;
+    --shadow-light: #ffffff;
+    --text-main: #31344b;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-main);
+}
+
+header { 
+    background: var(--bg);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px var(--shadow-dark);
+    text-align: center;
+}
+
+h2 { margin: 0 0 5px 0; color: #1a365d; font-size: 18px; }
+
+#counterDisplay {
+    margin: 2px 0 6px 0;
+    font-weight: bold;
+    color: #2e5a88;
+    font-size: 12px;
+    background: #f0f3f7;
+    padding: 3px 10px;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 2px 2px 4px var(--shadow-dark);
+}
+
+.top-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+
+.filter-area {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    background: #d4daf2;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 4px var(--shadow-dark);
+}
+
+input, select, button {
+    padding: 6px 8px;
+    border: none;
+    outline: none;
+    background: var(--bg);
+    border-radius: 6px;
+    box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+    font-size: 11px;
+}
+
+input#searchBox { width: 220px; }
+
+button.action-btn, button.save-btn, .fullscreen-btn {
+    cursor: pointer;
+    font-weight: bold;
+    background: #e4e9f0;
+    box-shadow: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
+    transition: 0.2s;
+}
+
+button:active {
+    box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+}
+
+/* এডমিন প্যানেল */
+.admin-panel {
+    background: #eaeef3;
+    padding: 15px 15px 10px 15px;
+    margin: 8px auto;
+    width: 95%;
+    max-width: 850px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    text-align: center;
+    position: relative;
+}
+
+.admin-panel h3 { margin: 0 0 8px 0; font-size: 14px; color: #1a365d; }
+
+.close-admin {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #d9534f;
+    cursor: pointer;
+}
+
+.form-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-group input, .form-group select { width: 110px; }
+
+/* নিখুঁত গ্রিড এবং কার্ড লেআউট */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    padding: 10px;
+    align-items: stretch;
+}
+
+.card {
+    background: var(--bg);
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* সমান ছবি সাইজ ফিক্স */
+.img-box {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #d1d9e6;
+    margin-bottom: 6px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.info {
+    text-align: left;
+}
+
+.info h4 { 
+    margin: 3px 0 3px 0; 
+    font-size: 11px; 
+    color: #000; 
+    white-space: normal; 
+    word-break: break-word;
+}
+
+.info p { 
+    margin: 2px 0; 
+    font-size: 9.5px; 
+    color: #444; 
+    border-bottom: 1px dashed #bfc7d1; 
+    padding-bottom: 1px; 
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* ফুল স্ক্রিন বাটন */
+.fullscreen-btn {
+    width: 100%;
+    margin-top: 6px;
+    padding: 4px;
+    font-size: 9px;
+    color: #1a365d;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+/* ছবি ফুল স্ক্রিন মোডাল */
+#imageModal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.92);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#zoomContainer { width: 90%; height: 80%; display: flex; justify-content: center; align-items: center; }
+#modalImg { max-width: 100%; max-height: 100%; border-radius: 6px; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
+.close-btn { position: absolute; top: 15px; right: 25px; color: white; font-size: 35px; cursor: pointer; }
+.modal-controls { color: white; margin-top: 8px; text-align: center; }
+
+/* রেসপন্সিভ ব্রেকপয়েন্ট */
+@media (max-width: 1600px) { .grid-container { grid-template-columns: repeat(7, 1fr); } }
+@media (max-width: 1350px) { .grid-container { grid-template-columns: repeat(6, 1fr); } }
+@media (max-width: 1100px) { .grid-container { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 850px)  { .grid-container { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 650px)  { .grid-container { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px)  { .grid-container { grid-template-columns: repeat(2, 1fr); padding: 5px; gap: 5px; } }
